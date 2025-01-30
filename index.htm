@@ -16,14 +16,16 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             text-align: center;
         }
         .container {
             background: rgba(255, 255, 255, 0.8);
             padding: 20px;
             border-radius: 10px;
-            max-width: 600px;
+            max-width: 90%;
+            width: 600px;
+            box-sizing: border-box;
         }
         input, button {
             width: 100%;
@@ -40,23 +42,6 @@
         button:hover {
             background-color: #ABABAB;
         }
-        .social-icons {
-            margin-top: 20px;
-        }
-        .social-icons a {
-            margin: 0 10px;
-            text-decoration: none;
-            font-size: 24px;
-            color: #2D2D2D;
-        }
-        .social-icons a:hover {
-            color: #ABABAB;
-        }
-        footer {
-            position: absolute;
-            bottom: 20px;
-            font-size: 14px;
-        }
         .album-button {
             display: inline-block;
             margin-top: 10px;
@@ -68,6 +53,22 @@
         }
         .album-button:hover {
             background-color: #ABABAB;
+        }
+        footer {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        @media screen and (max-width: 600px) {
+            .container {
+                padding: 15px;
+                width: 95%;
+            }
+            input, button {
+                font-size: 16px;
+            }
+            .album-button {
+                font-size: 14px;
+            }
         }
     </style>
 </head>
@@ -81,9 +82,6 @@
         <p id="response"></p>
         <p style="text-align: left; font-style: italic;">"I'm Jack Workforce, a producer and creator exploring the limits of creativity and authorship. This is an attempt to externalize my creative instincts—detaching them from ownership and leaving them open for interpretation. My ideas and process, filtered through an AI, are left open for mutation and use by anyone engaging with it. Workforce.GPT is both an artistic experiment and a creative tool, inviting others to engage with, question, and use my creative framework. It provokes and challenges ideas of authorship, creativity, and human-machine collaboration. This is not just an AI; this is an idea—one that invites you to step inside and shape it with your own curiosity. But don’t worry, this isn’t some ego-driven vanity project—I just thought it’d be fun to see what happens when my brain gets outsourced to the internet. Nothing Iz Sacred, including my ideas, your ideas, and the ridiculous fact that you’re even here interacting with this."</p>
         <p id="response"></p>
-        
-        <!-- Social Media Icons -->
-        
         
         <!-- Listen/Buy Album Button -->
         <a href="YOUR_ALBUM_LINK" class="album-button" target="_blank">Listen / Buy the Album</a>
