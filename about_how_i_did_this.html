@@ -9,31 +9,64 @@
             margin: 0;
             padding: 40px;
             font-family: Helvetica, Arial, sans-serif;
-            background: rgba(245, 245, 245, 1);
+            background: url('https://raw.githubusercontent.com/JackWorkforce/isthisworkforce-/refs/heads/main/MUSTMAKELP003%20-%20Workforce%20-%20Nothing%20Iz%20Sacred%20%5BAlbum%20Packshot%5D%20GITHUB.png') no-repeat center center fixed;
+            background-size: cover;
             color: #2C2C2C;
-            text-align: left;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            padding: 40px;
+            box-sizing: border-box;
         }
         .container {
+            background: rgba(255, 255, 255, 0.85);
+            padding: 40px;
+            border-radius: 12px;
             max-width: 800px;
-            margin: auto;
+            width: 90%;
+            box-sizing: border-box;
         }
         h1 {
-            font-size: 36px;
+            font-size: 48px;
             font-weight: bold;
             margin-bottom: 20px;
+        }
+        h2 {
+            font-size: 30px;
+            font-weight: bold;
+            margin-bottom: 15px;
         }
         p {
             font-size: 18px;
             line-height: 1.6;
             margin-bottom: 20px;
+            text-align: left;
         }
         a {
             color: #2D2D2D;
             text-decoration: none;
             font-weight: bold;
+            font-size: 18px;
         }
         a:hover {
             text-decoration: underline;
+        }
+        .button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 24px;
+            background-color: #2D2D2D;
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .button:hover {
+            background-color: #ABABAB;
         }
     </style>
 </head>
@@ -45,6 +78,8 @@
         <h2>How This Was Made</h2>
         <p>This project was developed using OpenAI’s GPT technology, custom-trained with Jack’s thoughts on authorship, creative struggle, and artistic integrity. By embedding layers of contradiction and self-awareness, Workforce.GPT is more than just a chatbot—it is an interactive exploration of what it means to be a creator in the age of AI.</p>
         
+        <p>One of the key inspirations behind this was Stewart Lee’s Comedy Vehicle—the way he deconstructs his own performance while delivering it, making the audience aware of the structure, intent, and contradictions within the work itself. In the same way, Workforce.GPT is not just responding—it’s commenting on its own responses, questioning its own logic, and reflecting on its artificiality while still functioning as a creative tool. It exists in a meta-space where it performs ‘me’ while also analyzing the performance itself, just as Lee dissects his own delivery in real-time.</p>
+        
         <p>The AI was fine-tuned with real-time conversations, guiding it to challenge assumptions rather than simply providing answers. It reflects on artistic compromise, questions the idea of ownership, and invites users to engage in their own self-exploration.</p>
         
         <h2>Why This Exists</h2>
@@ -52,7 +87,7 @@
         
         <p>By engaging with Workforce.GPT, users aren’t just interacting with AI—they’re stepping into an ongoing dialogue about the nature of creativity itself.</p>
         
-        <p><a href="index.html">← Back to Workforce.GPT</a></p>
+        <a href="index.html" class="button">← Back to Workforce.GPT</a>
     </div>
 </body>
 </html>
