@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Workforce.GPT</title>
+    <title>WORKFORCE.GPT</title>
     <style>
         body {
             margin: 0;
@@ -18,53 +18,76 @@
             align-items: center;
             min-height: 100vh;
             text-align: center;
+            padding: 40px;
+            box-sizing: border-box;
         }
         .container {
-            background: rgba(255, 255, 255, 0.8);
-            padding: 20px;
-            border-radius: 10px;
-            max-width: 90%;
-            width: 600px;
+            background: rgba(255, 255, 255, 0.85);
+            padding: 40px;
+            border-radius: 12px;
+            max-width: 800px;
+            width: 90%;
             box-sizing: border-box;
+        }
+        h1 {
+            font-size: 48px;
+            letter-spacing: 2px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
         }
         input, button {
             width: 100%;
-            padding: 10px;
-            margin-top: 10px;
+            padding: 15px;
+            margin-top: 15px;
             border: none;
             border-radius: 5px;
+            font-size: 16px;
         }
         button {
             background-color: #2D2D2D;
             color: white;
             cursor: pointer;
+            font-weight: bold;
         }
         button:hover {
             background-color: #ABABAB;
         }
         .album-button {
             display: inline-block;
-            margin-top: 10px;
-            padding: 10px 20px;
+            margin-top: 20px;
+            padding: 12px 24px;
             background-color: #2D2D2D;
             color: white;
             text-decoration: none;
+            font-size: 16px;
             border-radius: 5px;
+            font-weight: bold;
         }
         .album-button:hover {
             background-color: #ABABAB;
         }
         footer {
-            margin-top: 20px;
+            margin-top: 40px;
             font-size: 14px;
         }
         @media screen and (max-width: 600px) {
             .container {
-                padding: 15px;
+                padding: 25px;
                 width: 95%;
             }
-            input, button {
+            h1 {
+                font-size: 36px;
+            }
+            p {
                 font-size: 16px;
+            }
+            input, button {
+                font-size: 14px;
             }
             .album-button {
                 font-size: 14px;
@@ -74,14 +97,14 @@
 </head>
 <body>
     <div class="container">
-        <h1>Workforce.GPT</h1>
+        <h1>WORKFORCE.GPT</h1>
         <p>Nothing Iz Sacred.</p>
         
         <input type="text" placeholder="Ask a creative question...">
         <button>Submit</button>
         <p id="response"></p>
+        
         <p style="text-align: left; font-style: italic;">"I'm Jack Workforce, a producer and creator exploring the limits of creativity and authorship. This is an attempt to externalize my creative instincts—detaching them from ownership and leaving them open for interpretation. My ideas and process, filtered through an AI, are left open for mutation and use by anyone engaging with it. Workforce.GPT is both an artistic experiment and a creative tool, inviting others to engage with, question, and use my creative framework. It provokes and challenges ideas of authorship, creativity, and human-machine collaboration. This is not just an AI; this is an idea—one that invites you to step inside and shape it with your own curiosity. But don’t worry, this isn’t some ego-driven vanity project—I just thought it’d be fun to see what happens when my brain gets outsourced to the internet. Nothing Iz Sacred, including my ideas, your ideas, and the ridiculous fact that you’re even here interacting with this."</p>
-        <p id="response"></p>
         
         <!-- Listen/Buy Album Button -->
         <a href="YOUR_ALBUM_LINK" class="album-button" target="_blank">Listen / Buy the Album</a>
