@@ -22,7 +22,7 @@
             box-sizing: border-box;
         }
         .container {
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.9);
             padding: 30px;
             border-radius: 12px;
             max-width: 800px;
@@ -30,7 +30,7 @@
             box-sizing: border-box;
         }
         h1, h2, h3 {
-            font-size: 48px;
+            font-size: 36px;
             font-weight: bold;
             text-transform: uppercase;
             margin-bottom: 20px;
@@ -39,7 +39,7 @@
             font-size: 18px;
             line-height: 1.6;
             margin-bottom: 20px;
-            text-align: left;
+            text-align: center;
         }
         .button-container {
             display: flex;
@@ -51,7 +51,7 @@
         .button {
             display: block;
             text-align: center;
-            width: 200px;
+            width: 220px;
             padding: 12px 24px;
             background-color: #2D2D2D;
             color: white;
@@ -71,18 +71,31 @@
             border-radius: 5px;
             font-size: 16px;
         }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        label {
+            font-size: 16px;
+            margin-top: 10px;
+        }
         @media (max-width: 768px) {
             body {
-                padding: 20px;
+                padding: 10px;
             }
             .container {
                 padding: 20px;
+                width: 95%;
             }
             h1, h2, h3 {
-                font-size: 36px;
+                font-size: 28px;
             }
             p {
                 font-size: 16px;
+            }
+            .button {
+                width: 100%;
             }
         }
     </style>
@@ -93,12 +106,12 @@
         <p>Share your thoughts, feedback, or your favourite interactions with WORKFORCE.GPT. This helps refine the experience and keep the experiment evolving.</p>
         
         <form id="feedbackForm">
-            <label for="feedback">Your Feedback or Interaction:</label>
+            <label for="feedback">YOUR FEEDBACK OR INTERACTION:</label>
             <textarea id="feedback" name="feedback" rows="4" placeholder="Tell us what you think..."></textarea>
-            <label for="email">Your Email (optional, if you’d like a response):</label>
+            <label for="email">YOUR EMAIL (OPTIONAL, IF YOU’D LIKE A RESPONSE):</label>
             <input type="email" id="email" name="email" placeholder="you@example.com">
-            <button type="submit">SUBMIT FEEDBACK</button>
-            <p id="feedbackMessage" style="display: none; color: green;">Thank you! Your feedback has been submitted.</p>
+            <button type="submit" class="button">SUBMIT FEEDBACK</button>
+            <p id="feedbackMessage" style="display: none; color: green;">THANK YOU! YOUR FEEDBACK HAS BEEN SUBMITTED.</p>
         </form>
 
         <div class="button-container">
