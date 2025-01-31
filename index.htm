@@ -5,39 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WORKFORCE.GPT</title>
     <style>
-.button {
-    display: inline-block;
-    margin-top: 10px;
-    padding: 12px 24px;
-    background-color: #2D2D2D;
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-    border-radius: 5px;
-    font-weight: bold;
-}
-.button:hover {
-    background-color: #ABABAB;
-}
-
-      .button {
-    display: inline-block;
-    margin-top: 20px;
-    padding: 12px 24px;
-    background-color: #2D2D2D;
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-    border-radius: 5px;
-    font-weight: bold;
-}
-.button:hover {
-    background-color: #ABABAB;
-}
-
         body {
             margin: 0;
-            padding: 0;
+            padding: 20px;
             font-family: Helvetica, Arial, sans-serif;
             background: url('https://raw.githubusercontent.com/JackWorkforce/isthisworkforce-/refs/heads/main/MUSTMAKELP003%20-%20Workforce%20-%20Nothing%20Iz%20Sacred%20%5BAlbum%20Packshot%5D%20GITHUB.png') no-repeat center center fixed;
             background-size: cover;
@@ -48,48 +18,40 @@
             align-items: center;
             min-height: 100vh;
             text-align: center;
-            padding: 40px;
             box-sizing: border-box;
         }
         .container {
-            background: rgba(255, 255, 255, 0.85);
-            padding: 40px;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
             border-radius: 12px;
             max-width: 800px;
             width: 90%;
             box-sizing: border-box;
         }
         h1 {
-            font-size: 48px;
-            letter-spacing: 2px;
+            font-size: 36px;
             font-weight: bold;
+            text-transform: uppercase;
             margin-bottom: 20px;
         }
         p {
-            font-size: 18px;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-        input, button {
-            width: 100%;
-            padding: 15px;
-            margin-top: 15px;
-            border: none;
-            border-radius: 5px;
             font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 15px;
+            text-align: left;
         }
-        button {
-            background-color: #2D2D2D;
-            color: white;
-            cursor: pointer;
-            font-weight: bold;
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+            margin-top: 10px;
         }
-        button:hover {
-            background-color: #ABABAB;
-        }
-        .album-button {
-            display: inline-block;
-            margin-top: 20px;
+        .button {
+            display: block;
+            text-align: center;
+            width: 100%;
+            max-width: 250px;
             padding: 12px 24px;
             background-color: #2D2D2D;
             color: white;
@@ -98,29 +60,54 @@
             border-radius: 5px;
             font-weight: bold;
         }
-        .album-button:hover {
+        .button:hover {
+            background-color: #ABABAB;
+        }
+        textarea, input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            background-color: #2D2D2D;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
             background-color: #ABABAB;
         }
         footer {
-            margin-top: 40px;
+            margin-top: 20px;
             font-size: 14px;
+            text-align: center;
         }
-        @media screen and (max-width: 600px) {
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
             .container {
-                padding: 25px;
+                padding: 15px;
                 width: 95%;
             }
             h1 {
-                font-size: 36px;
+                font-size: 28px;
             }
             p {
-                font-size: 16px;
-            }
-            input, button {
                 font-size: 14px;
+                text-align: justify;
             }
-            .album-button {
-                font-size: 14px;
+            .button {
+                width: 100%;
             }
         }
     </style>
@@ -128,46 +115,19 @@
 <body>
     <div class="container">
         <h1>WORKFORCE.GPT</h1>
-        <p>Nothing Iz Sacred.</p>
-        
-        <textarea placeholder="Ask a creative question..." rows="4" style="width: 100%; padding: 15px; margin-top: 15px; border: none; border-radius: 5px; font-size: 16px; resize: none;"></textarea>
+        <p><i>I'm Jack Workforce, a producer and creator exploring the limits of creativity and authorship. This is an attempt to externalize my creative instincts—detaching them from ownership and leaving them open for interpretation. My ideas and process, filtered through an AI, are left open for mutation and use by anyone engaging with it. Workforce.GPT is both an artistic experiment and a creative tool, inviting others to engage with, question, and use my creative framework. It provokes and challenges ideas of authorship, creativity, and human-machine collaboration. This is not just an AI; this is an idea—one that invites you to step inside and shape it with your own curiosity.</i></p>
+        <p><i>But don’t worry, this isn’t some ego-driven vanity project—I just thought it’d be provocative and playful to see what happens, and to see if I could digitise my ideology and thinking on the internet, and have it respond to user inputs.</i></p>
+        <p><i>Nothing Iz Sacred, including my ideas.</i></p>
+        <textarea placeholder="Ask a creative question..." rows="4"></textarea>
         <button>Submit</button>
         <div id="chat-container" style="max-height: 300px; overflow-y: auto; text-align: left; background: rgba(255,255,255,0.7); padding: 15px; border-radius: 5px; margin-top: 15px;"></div>
-        
-        <p style="text-align: left; font-style: italic;">I'm Jack Workforce, a producer and creator exploring the limits of creativity and authorship. This is an attempt to externalize my creative instincts—detaching them from ownership and leaving them open for interpretation. My ideas and process, filtered through an AI, are left open for mutation and use by anyone engaging with it. Workforce.GPT is both an artistic experiment and a creative tool, inviting others to engage with, question, and use my creative framework. It provokes and challenges ideas of authorship, creativity, and human-machine collaboration. This is not just an AI; this is an idea—one that invites you to step inside and shape it with your own curiosity. </p>
-        
-        <p style="text-align: left; font-style: italic;">But don’t worry, this isn’t some ego-driven vanity project—I just thought it’d be provocative and playful to see what happens, and to see if I could digitise my ideology and thinking on the internet, and have it respond to user inputs.</p>
-        
-        <p style="text-align: left; font-style: italic;">Nothing Iz Sacred, including my ideas.</p>
-        
-        <!-- Listen/Buy Album Button -->
-        <a href="YOUR_ALBUM_LINK" class="album-button" target="_blank">Listen / Buy the Album</a>
+        <div class="button-container">
+            <a href="about_how_i_did_this.html" class="button">HOW THIS WAS MADE</a>
+            <a href="feedback.html" class="button">FEEDBACK / SHARE FAVOURITE INTERACTIONS</a>
+        </div>
     </div>
-    
     <footer>
-    Created by Workforce – Nothing Iz Sacred. <br>
-    <div class="button-container">
-        <a href="about_how_i_did_this.html" class="button">How This Was Made</a>
-        <a href="feedback.html" class="button">Feedback / Share Favourite Interactions</a>
-    </div>
-</footer>
-
-<style>
-.button-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    align-items: center;
-    margin-top: 10px;
-}
-.button {
-    display: block;
-    text-align: center;
-    width: 200px;
-}
-</style>
-
-
-
+        Created by Workforce – Nothing Iz Sacred.
+    </footer>
 </body>
 </html>
