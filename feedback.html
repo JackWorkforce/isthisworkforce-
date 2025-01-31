@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feedback | Workforce.GPT</title>
+    <title>WORKFORCE.GPT</title>
     <style>
         body {
             margin: 0;
@@ -18,20 +18,21 @@
             align-items: center;
             min-height: 100vh;
             text-align: center;
-            padding: 40px;
+            padding: 20px;
             box-sizing: border-box;
         }
         .container {
             background: rgba(255, 255, 255, 0.85);
-            padding: 40px;
+            padding: 30px;
             border-radius: 12px;
-            max-width: 600px;
+            max-width: 800px;
             width: 90%;
             box-sizing: border-box;
         }
-        h1 {
-            font-size: 36px;
+        h1, h2, h3 {
+            font-size: 48px;
             font-weight: bold;
+            text-transform: uppercase;
             margin-bottom: 20px;
         }
         p {
@@ -40,16 +41,17 @@
             margin-bottom: 20px;
             text-align: left;
         }
-        textarea, input {
-            width: 100%;
-            padding: 10px;
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
             margin-top: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
         }
-        button {
-            margin-top: 15px;
+        .button {
+            display: block;
+            text-align: center;
+            width: 200px;
             padding: 12px 24px;
             background-color: #2D2D2D;
             color: white;
@@ -57,54 +59,36 @@
             font-size: 16px;
             border-radius: 5px;
             font-weight: bold;
-            border: none;
-            cursor: pointer;
         }
-        button:hover {
+        .button:hover {
             background-color: #ABABAB;
         }
-        #feedbackMessage {
-            display: none;
-            color: green;
-            margin-top: 15px;
+        @media (max-width: 768px) {
+            body {
+                padding: 20px;
+            }
+            .container {
+                padding: 20px;
+            }
+            h1, h2, h3 {
+                font-size: 36px;
+            }
+            p {
+                font-size: 16px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Feedback / Share Favourite Interactions</h1>
-        <p>Share your thoughts, feedback, or your favourite interactions with Workforce.GPT. This helps refine the experience and keep the experiment evolving.</p>
-        
-        <form id="feedbackForm">
-            <label for="feedback">Your Feedback or Interaction:</label>
-            <textarea id="feedback" name="feedback" rows="4" placeholder="Tell us what you think..."></textarea>
-            <label for="email">Your Email (optional, if you’d like a response):</label>
-            <input type="email" id="email" name="email" placeholder="you@example.com">
-            <button type="submit">Submit Feedback</button>
-            <p id="feedbackMessage">Thank you! Your feedback has been submitted.</p>
-        </form>
-    <a href="https://www.isthisworkforce.cc/" class="button" style="display: inline-block; margin-top: 20px; padding: 12px 24px; background-color: #2D2D2D; color: white; text-decoration: none; font-size: 16px; border-radius: 5px; font-weight: bold;">← Back to Workforce.GPT</a>
+        <h1>WORKFORCE.GPT</h1>
+        <p style="text-align: left; font-style: italic;">I'm Jack Workforce, a producer and creator exploring the limits of creativity and authorship. This is an attempt to externalize my creative instincts—detaching them from ownership and leaving them open for interpretation. My ideas and process, filtered through an AI, are left open for mutation and use by anyone engaging with it. Workforce.GPT is both an artistic experiment and a creative tool, inviting others to engage with, question, and use my creative framework. It provokes and challenges ideas of authorship, creativity, and human-machine collaboration. This is not just an AI; this is an idea—one that invites you to step inside and shape it with your own curiosity.</p>
+        <p style="text-align: left; font-style: italic;">But don’t worry, this isn’t some ego-driven vanity project—I just thought it’d be provocative and playful to see what happens, and to see if I could digitise my ideology and thinking on the internet, and have it respond to user inputs.</p>
+        <p style="text-align: left; font-style: italic;">Nothing Iz Sacred, including my ideas.</p>
+        <div class="button-container">
+            <a href="about_how_i_did_this.html" class="button">HOW THIS WAS MADE</a>
+            <a href="feedback.html" class="button">FEEDBACK / SHARE FAVOURITE INTERACTIONS</a>
+        </div>
     </div>
-    
-    <script>
-        document.getElementById("feedbackForm").addEventListener("submit", function(event) {
-            event.preventDefault();
-            let feedback = document.getElementById("feedback").value;
-            let email = document.getElementById("email").value;
-
-            fetch("/api/feedback", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ feedback: feedback, email: email })
-            })
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById("feedbackMessage").style.display = "block";
-                document.getElementById("feedback").value = "";
-                document.getElementById("email").value = "";
-            })
-            .catch(error => console.error("Error submitting feedback:", error));
-        });
-    </script>
 </body>
 </html>
