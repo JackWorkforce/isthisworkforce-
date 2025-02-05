@@ -114,7 +114,10 @@
 <body>
     <div class="container">
         <h1>WORKFORCE.GPT</h1>
-        <div id="chat-container" style="height: 500px; max-width: 90%; overflow-y: auto; text-align: left; background: rgba(255,255,255,0.9); padding: 20px; border-radius: 10px; margin-top: 20px; display: flex; flex-direction: column; gap: 10px;"><textarea style="width: 100%; border: none; padding: 10px; font-size: 16px;" placeholder="Ask a creative question..." rows="3"></textarea></div>
+        <div id="chat-container" style="height: 500px; max-width: 90%; overflow-y: auto; text-align: left; background: rgba(255,255,255,0.9); padding: 20px; border-radius: 10px; margin-top: 20px; display: flex; flex-direction: column-reverse; gap: 10px;">
+        </div>
+        <textarea id="user-input" style="width: 90%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 16px;" placeholder="Ask a creative question..." rows="3"></textarea>
+        <button id="submit-button">Submit</button>
         <button>Submit</button>
         
         
