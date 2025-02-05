@@ -63,15 +63,57 @@
         .button:hover {
             background-color: #ABABAB;
         }
-        textarea, input {
+        
+        .chat-message {
+            max-width: 80%;
+            padding: 10px;
+            border-radius: 8px;
+            margin: 5px 0;
+        }
+        .user-message {
+            background-color: #d1e7fd;
+            align-self: flex-end;
+            text-align: right;
+        }
+        .ai-message {
+            background-color: #f1f1f1;
+            align-self: flex-start;
+            text-align: left;
+        }
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            align-items: center;
+        }
+        .chat-box {
+            height: 500px;
+            width: 90%;
+            overflow-y: auto;
+            background: rgba(255,255,255,0.9);
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        .input-container {
+            display: flex;
+            flex-direction: column;
+            width: 90%;
+            max-width: 600px;
+            margin-top: 10px;
+        }
+        .input-container textarea {
             width: 100%;
             padding: 10px;
-            margin-top: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
             font-size: 16px;
+            resize: none;
         }
-        button {
+        .input-container button {
             width: 100%;
             padding: 12px;
             background-color: #2D2D2D;
@@ -81,46 +123,25 @@
             font-size: 16px;
             cursor: pointer;
             font-weight: bold;
+            margin-top: 10px;
         }
-        button:hover {
+        .input-container button:hover {
             background-color: #ABABAB;
-        }
-        footer {
-            margin-top: 20px;
-            font-size: 14px;
-            text-align: center;
-        }
-        @media (max-width: 768px) {
-            body {
-                padding: 10px;
-            }
-            .container {
-                padding: 15px;
-                width: 95%;
-            }
-            h1 {
-                font-size: 28px;
-            }
-            p {
-                font-size: 14px;
-                text-align: justify;
-            }
-            .button {
-                width: 100%;
-            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>WORKFORCE.GPT</h1>
-        <div id="chat-container" style="height: 500px; max-width: 90%; overflow-y: auto; text-align: left; background: rgba(255,255,255,0.9); padding: 20px; border-radius: 10px; margin-top: 20px; display: flex; flex-direction: column-reverse; gap: 10px;">
+        <div class="chat-container">
+            <div id="chat-box" class="chat-box"></div>
+            <div class="input-container">
+                
+                
+            </div> 
+        
+        
         </div>
-        <textarea id="user-input" style="width: 90%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 16px;" placeholder="Ask a creative question..." rows="3"></textarea>
-        <button id="submit-button">Submit</button>
-        
-        
-        
         <p><i>Workforce.GPT is an AI-driven creative tool designed to externalize artistic decision-making and challenge the boundaries of authorship. It serves as both a resource and an experiment, inviting users to engage with an AI version of Jack Workforce’s creative philosophy. By interacting with this tool, users can explore ideation, creative problem-solving, and conceptual thinking in a way that provokes reflection on ownership, inspiration, and the evolving role of AI in artistic spaces.</i></p>
         
         <p><i>Jack Workforce, a producer and creator, developed this project to examine the limits of creativity and authorship. His process, translated through AI, is open for interpretation, mutation, and reinvention by those who engage with it. Workforce.GPT is not just an AI—it is an ongoing dialogue about creativity, a tool that encourages thought and experimentation.</i></p>
@@ -136,5 +157,26 @@
     <footer>
         Created by Workforce – Nothing Iz Sacred.
     </footer>
+    <script>
+        document.getElementById('submit-button').addEventListener('click', function() {
+            var userInput = document.getElementById('user-input').value;
+            if (userInput.trim() !== '') {
+                var chatBox = document.getElementById('chat-box');
+                var userMessage = document.createElement('div');
+                userMessage.classList.add('chat-message', 'user-message');
+                userMessage.innerText = userInput;
+                chatBox.appendChild(userMessage);
+                document.getElementById('user-input').value = '';
+                
+                setTimeout(function() {
+                    var aiMessage = document.createElement('div');
+                    aiMessage.classList.add('chat-message', 'ai-message');
+                    aiMessage.innerText = 'Thinking... (AI Response Placeholder)';
+                    chatBox.appendChild(aiMessage);
+                    chatBox.scrollTop = chatBox.scrollHeight;
+                }, 1000);
+            }
+        });
+    </script>
 </body>
 </html>
