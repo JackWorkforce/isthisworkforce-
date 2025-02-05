@@ -64,11 +64,82 @@
             background-color: #ABABAB;
         }
         
+        .chat-message {
+            max-width: 80%;
+            padding: 10px;
+            border-radius: 8px;
+            margin: 5px 0;
+        }
+        .user-message {
+            background-color: #d1e7fd;
+            align-self: flex-end;
+            text-align: right;
+        }
+        .ai-message {
+            background-color: #f1f1f1;
+            align-self: flex-start;
+            text-align: left;
+        }
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            align-items: center;
+        }
+        .chat-box {
+            height: 500px;
+            width: 90%;
+            overflow-y: auto;
+            background: rgba(255,255,255,0.9);
+            padding: 20px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+        }
+        .input-container {
+            display: flex;
+            flex-direction: column;
+            width: 90%;
+            max-width: 600px;
+            margin-top: 10px;
+        }
+        .input-container textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            resize: none;
+        }
+        .input-container button {
+            width: 100%;
+            padding: 12px;
+            background-color: #2D2D2D;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .input-container button:hover {
+            background-color: #ABABAB;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <h1>WORKFORCE.GPT</h1>
-        <div id="chat-container" style="height: 500px; width: 90%; overflow-y: auto; text-align: left; background: rgba(255,255,255,0.9); padding: 20px; border-radius: 10px; margin-top: 20px; display: flex; flex-direction: column; align-items: flex-start; gap: 10px;"></div> 
+        <div class="chat-container">
+            <div id="chat-box" class="chat-box"></div>
+            <div class="input-container">
+                <textarea id="user-input" placeholder="Ask a creative question..." rows="3"></textarea>
+                <button id="submit-button">Submit</button>
+            </div>
+        </div> 
         <textarea id="user-input" style="width: 90%; max-width: 600px; padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 16px; display: block; margin: 0 auto; outline: none;" placeholder="Ask a creative question..." rows="3"></textarea>
         <button id="submit-button" style="width: 90%; max-width: 600px; display: block; margin: 10px auto;">Submit</button>
         </div>
@@ -87,5 +158,26 @@
     <footer>
         Created by Workforce – Nothing Iz Sacred.
     </footer>
+    <script>
+        document.getElementById('submit-button').addEventListener('click', function() {
+            var userInput = document.getElementById('user-input').value;
+            if (userInput.trim() !== '') {
+                var chatBox = document.getElementById('chat-box');
+                var userMessage = document.createElement('div');
+                userMessage.classList.add('chat-message', 'user-message');
+                userMessage.innerText = userInput;
+                chatBox.appendChild(userMessage);
+                document.getElementById('user-input').value = '';
+                
+                setTimeout(function() {
+                    var aiMessage = document.createElement('div');
+                    aiMessage.classList.add('chat-message', 'ai-message');
+                    aiMessage.innerText = 'Thinking... (AI Response Placeholder)';
+                    chatBox.appendChild(aiMessage);
+                    chatBox.scrollTop = chatBox.scrollHeight;
+                }, 1000);
+            }
+        });
+    </script>
 </body>
 </html>
