@@ -63,15 +63,61 @@
         .button:hover {
             background-color: #ABABAB;
         }
-        <textarea id="user-input" style="width: 90%; max-width: 600px; padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 16px; display: block; margin: 0 auto; outline: none;" placeholder="Ask a creative question..." rows="3"></textarea>
+        textarea, input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #2D2D2D;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #ABABAB;
+        }
+        footer {
+            margin-top: 20px;
+            font-size: 14px;
+            text-align: center;
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            .container {
+                padding: 15px;
+                width: 95%;
+            }
+            h1 {
+                font-size: 28px;
+            }
+            p {
+                font-size: 14px;
+                text-align: justify;
+            }
+            .button {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <h1>WORKFORCE.GPT</h1>
-        <div id="chat-container" style="height: 500px; width: 90%; overflow-y: auto; text-align: left; background: rgba(255,255,255,0.9); padding: 20px; border-radius: 10px; margin-top: 20px; display: flex; flex-direction: column; align-items: flex-start; gap: 10px;"></div> 
+        <div id="chat-container" style="height: 500px; max-width: 90%; overflow-y: auto; text-align: left; background: rgba(255,255,255,0.9); padding: 20px; border-radius: 10px; margin-top: 20px; display: flex; flex-direction: column-reverse; gap: 10px;">
         </div>
-        <textarea id="user-input" style="width: 90%; max-width: 600px; padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 16px; display: block; margin: 0 auto; outline: none;" placeholder="Ask a creative question..." rows="3"></textarea>
-        <button id="submit-button" style="width: 90%; max-width: 600px; display: block; margin: 10px auto;">Submit</button>
+        <textarea id="user-input" style="width: 90%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 16px;" placeholder="Ask a creative question..." rows="3"></textarea>
+        <button id="submit-button">Submit</button>
         
         
         
