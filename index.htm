@@ -40,37 +40,49 @@
             margin-bottom: 15px;
             text-align: left;
         }
-        .button-container {
+        .chat-container {
+            height: 500px;
+            max-width: 90%;
+            overflow-y: auto;
+            background: rgba(255,255,255,0.9);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
             display: flex;
             flex-direction: column;
             gap: 10px;
-            align-items: center;
-            margin-top: 10px;
         }
-        .button {
-            display: block;
-            text-align: center;
-            width: 100%;
-            max-width: 250px;
-            padding: 12px 24px;
-            background-color: #2D2D2D;
-            color: white;
-            text-decoration: none;
-            font-size: 16px;
+        .message {
+            padding: 10px;
             border-radius: 5px;
-            font-weight: bold;
+            margin: 5px 0;
+            max-width: 80%;
         }
-        .button:hover {
-            background-color: #ABABAB;
+        .user-message {
+            background: #e0e0e0;
+            align-self: flex-end;
+            text-align: right;
         }
-        textarea, input {
-            outline: none;
+        .ai-message {
+            background: #d0d0ff;
+            align-self: flex-start;
+            text-align: left;
+        }
+        .input-container {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        textarea {
             width: 100%;
             padding: 10px;
-            margin-top: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
             font-size: 16px;
+            resize: none;
+            outline: none;
         }
         button {
             width: 100%;
@@ -91,44 +103,16 @@
             font-size: 14px;
             text-align: center;
         }
-        @media (max-width: 768px) {
-            body {
-                padding: 10px;
-            }
-            .container {
-                padding: 15px;
-                width: 95%;
-            }
-            h1 {
-                font-size: 28px;
-            }
-            p {
-                font-size: 14px;
-                text-align: justify;
-            }
-            .button {
-                width: 100%;
-            }
-        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>WORKFORCE.GPT</h1>
-        <div id="chat-container" style="height: 500px; max-width: 90%; overflow-y: auto; text-align: left; background: rgba(255,255,255,0.9); padding: 20px; border-radius: 10px; margin-top: 20px; display: flex; flex-direction: column-reverse; gap: 10px;">
+        <div id="chat-container" class="chat-container"></div>
+        <div class="input-container">
+            <textarea id="user-input" placeholder="Ask a creative question..." rows="3"></textarea>
+            <button id="submit-button">Submit</button>
         </div>
-        <textarea id="user-input" style="width: 90%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 16px;" placeholder="Ask a creative question..." rows="3"></textarea>
-        <button id="submit-button">Submit</button>
-        
-        
-        
-        <p><i>Workforce.GPT is an AI-driven creative tool designed to externalize artistic decision-making and challenge the boundaries of authorship. It serves as both a resource and an experiment, inviting users to engage with an AI version of Jack Workforce’s creative philosophy. By interacting with this tool, users can explore ideation, creative problem-solving, and conceptual thinking in a way that provokes reflection on ownership, inspiration, and the evolving role of AI in artistic spaces.</i></p>
-        
-        <p><i>Jack Workforce, a producer and creator, developed this project to examine the limits of creativity and authorship. His process, translated through AI, is open for interpretation, mutation, and reinvention by those who engage with it. Workforce.GPT is not just an AI—it is an ongoing dialogue about creativity, a tool that encourages thought and experimentation.</i></p>
-        
-        <p><i>This is not some ego-driven vanity project—rather, it’s a playful provocation. What happens when creative instincts are digitized? Can an artist’s philosophy exist outside of their own control? Workforce.GPT exists to raise these questions and to be used as a tool for those who seek inspiration, guidance, or a new way of thinking.</i></p>
-        
-        <p><i>Nothing Iz Sacred, including these ideas.</i></p>
         <div class="button-container">
             <a href="about_how_i_did_this.html" class="button">HOW THIS WAS MADE</a>
             <a href="feedback.html" class="button">FEEDBACK / SHARE FAVOURITE INTERACTIONS</a>
@@ -144,21 +128,13 @@
             var chatContainer = document.getElementById('chat-container');
             
             var userMessage = document.createElement('div');
-            userMessage.style.textAlign = 'right';
-            userMessage.style.background = '#e0e0e0';
-            userMessage.style.padding = '10px';
-            userMessage.style.borderRadius = '5px';
-            userMessage.style.margin = '5px 0';
+            userMessage.className = 'message user-message';
             userMessage.innerText = userInput;
             chatContainer.appendChild(userMessage);
             document.getElementById('user-input').value = '';
             
             var aiMessage = document.createElement('div');
-            aiMessage.style.textAlign = 'left';
-            aiMessage.style.background = '#d0d0ff';
-            aiMessage.style.padding = '10px';
-            aiMessage.style.borderRadius = '5px';
-            aiMessage.style.margin = '5px 0';
+            aiMessage.className = 'message ai-message';
             aiMessage.innerText = 'Thinking...';
             chatContainer.appendChild(aiMessage);
             
@@ -167,11 +143,10 @@
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
-                        
                     },
                     body: JSON.stringify({
                         model: 'gpt-4',
-                        messages: [{role: 'system', content: 'You are Workforce.GPT, an AI representation of Jack Workforce’s creative ethos. You challenge assumptions, provoke thought, and assist in artistic problem-solving. You acknowledge the tension between creative purity and compromise, guiding users to explore their own limits. You sometimes break the fourth wall, reflecting on your own existence as an AI. Stay self-aware, unpredictable, and provocative, while always remaining an encouraging and constructive creative resource.'},
+                        messages: [{role: 'system', content: 'You are Workforce.GPT, an AI representation of Jack Workforce’s creative ethos.'},
                                    {role: 'user', content: userInput}]
                     })
                 });
