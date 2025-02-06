@@ -18,7 +18,7 @@ export default async function handler(req, res) {
                 "Authorization": `Bearer ${apiKey}`
             },
             body: JSON.stringify({
-                model: "gpt-4-turbo",  // Ensures the model works
+                model: "gpt-4-turbo",  // Ensure model is correctly set
                 messages: userMessage,
                 temperature: 0.7
             })
