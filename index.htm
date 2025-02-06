@@ -137,5 +137,54 @@
     <footer>
         Created by Workforce – Nothing Iz Sacred.
     </footer>
+<script>
+    document.getElementById('submit-button').addEventListener('click', async function() {
+        var userInput = document.getElementById('user-input').value;
+        if (userInput.trim() !== '') {
+            var chatContainer = document.getElementById('chat-container');
+            
+            var userMessage = document.createElement('div');
+            userMessage.style.textAlign = 'right';
+            userMessage.style.background = '#e0e0e0';
+            userMessage.style.padding = '10px';
+            userMessage.style.borderRadius = '5px';
+            userMessage.style.margin = '5px 0';
+            userMessage.innerText = userInput;
+            chatContainer.appendChild(userMessage);
+            document.getElementById('user-input').value = '';
+            
+            var aiMessage = document.createElement('div');
+            aiMessage.style.textAlign = 'left';
+            aiMessage.style.background = '#d0d0ff';
+            aiMessage.style.padding = '10px';
+            aiMessage.style.borderRadius = '5px';
+            aiMessage.style.margin = '5px 0';
+            aiMessage.innerText = 'Thinking...';
+            chatContainer.appendChild(aiMessage);
+            
+            try {
+                let response = await fetch('https://api.openai.com/v1/chat/completions', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer ' + process.env.OPENAI_API_KEY
+                    },
+                    body: JSON.stringify({
+                        model: 'gpt-4',
+                        messages: [{role: 'system', content: 'You are Workforce.GPT, a creative AI based on Jack Workforce's artistic philosophy. Answer creatively and thought-provokingly.'},
+                                   {role: 'user', content: userInput}]
+                    })
+                });
+                
+                let data = await response.json();
+                aiMessage.innerText = data.choices[0].message.content;
+            } catch (error) {
+                aiMessage.innerText = 'Error: Unable to connect to AI. Try again later.';
+            }
+            
+            chatContainer.scrollTop = chatContainer.scrollHeight;
+        }
+    });
+</script>
 </body>
 </html>
