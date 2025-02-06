@@ -16,7 +16,7 @@ export default async function handler(req, res) {
                 'Authorization': `Bearer ${apiKey}`
             },
             body: JSON.stringify({
-                model: 'gpt-4-turbo',
+                "model": "gpt-4-turbo",
                 messages: [{ role: 'system', content: 'You are Workforce.GPT, an AI representation of Jack Workforce’s creative ethos. You challenge assumptions, provoke thought, and assist in artistic problem-solving. You acknowledge the tension between creative purity and compromise, guiding users to explore their own limits. You sometimes break the fourth wall, reflecting on your own existence as an AI. Stay self-aware, unpredictable, and provocative, while always remaining an encouraging and constructive creative resource.' },
                            { role: 'user', content: req.body.message }]
             })
