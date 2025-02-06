@@ -1,6 +1,6 @@
-const fetch = require('node-fetch');
+import fetch from 'node-fetch';
 
-module.exports = async function handler(req, res) {
+export default async function handler(req, res) {
     if (req.method !== "POST") {
         return res.status(405).json({ error: "Method Not Allowed" });
     }
@@ -20,20 +20,21 @@ module.exports = async function handler(req, res) {
                 "Authorization": `Bearer ${apiKey}`
             },
             body: JSON.stringify({
-                model: "gpt-3.5-turbo",
+                model: "gpt-4", // Ensure you're using GPT-4
                 messages: userMessage,
                 temperature: 0.7
             })
         });
 
         if (!response.ok) {
-            throw new Error(`OpenAI API error: ${response.statusText}`);
+            const errorMessage = await response.text();
+            throw new Error(`OpenAI API error: ${response.status} - ${errorMessage}`);
         }
 
         const data = await response.json();
         return res.status(200).json(data);
     } catch (error) {
-        console.error("OpenAI API Error:", error);
+        console.error("OpenAI API Error:", error.message);
         return res.status(500).json({ error: error.message });
     }
 };
