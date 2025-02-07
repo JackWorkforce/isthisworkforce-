@@ -1,18 +1,8 @@
-const fetch = require('node-fetch');
+import fetch from 'node-fetch';
 
-module.exports = async function handler(req, res) {
+export default async function handler(req, res) {
     if (req.method !== "POST") {
         return res.status(405).json({ error: "Method Not Allowed" });
-    }
-
-    // Ensure req.body is parsed as JSON (if it's a string, try to parse it)
-    let body = req.body;
-    if (typeof body === 'string') {
-        try {
-            body = JSON.parse(body);
-        } catch (e) {
-            return res.status(400).json({ error: "Invalid JSON" });
-        }
     }
 
     const apiKey = process.env.OPENAI_API_KEY;
@@ -21,7 +11,7 @@ module.exports = async function handler(req, res) {
     }
 
     try {
-        const userMessage = body.messages;
+        const userMessage = req.body.messages;
 
         const response = await fetch("https://api.openai.com/v1/chat/completions", {
             method: "POST",
@@ -30,20 +20,21 @@ module.exports = async function handler(req, res) {
                 "Authorization": `Bearer ${apiKey}`
             },
             body: JSON.stringify({
-                model: "gpt-4",
+                model: "gpt-4", // Ensure you're using GPT-4
                 messages: userMessage,
                 temperature: 0.7
             })
         });
 
         if (!response.ok) {
-            throw new Error(`OpenAI API error: ${response.statusText}`);
+            const errorMessage = await response.text();
+            throw new Error(`OpenAI API error: ${response.status} - ${errorMessage}`);
         }
 
         const data = await response.json();
         return res.status(200).json(data);
     } catch (error) {
-        console.error("OpenAI API Error:", error);
+        console.error("OpenAI API Error:", error.message);
         return res.status(500).json({ error: error.message });
     }
 };
