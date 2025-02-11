@@ -20,7 +20,7 @@ export default async function handler(req, res) {
                 "Authorization": `Bearer ${apiKey}`
             },
             body: JSON.stringify({
-                model: "gpt-3-turbo", // Ensure you're using GPT-4
+                model: "gpt-3.5-turbo", // Ensure you're using GPT-4
                 messages: userMessage,
                 temperature: 0.7
             })
